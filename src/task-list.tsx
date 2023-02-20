@@ -8,6 +8,7 @@ export const TaskList = observer(() => {
     <div className="taskList">
       <h1>Task list</h1>
       <NewTaskForm />
+      <TasksFilter />
       {taskListStore.filteredTasks.map((task) => (
         <Task
           key={task.id}
@@ -16,6 +17,25 @@ export const TaskList = observer(() => {
           isDone={task.isDone}
         />
       ))}
+    </div>
+  )
+})
+
+export const TasksFilter = observer(() => {
+  return (
+    <div>
+      <label>
+        all
+        <input type="radio" />
+      </label>
+      <label>
+        done
+        <input type="radio" />
+      </label>
+      <label>
+        not done
+        <input type="radio" />
+      </label>
     </div>
   )
 })
