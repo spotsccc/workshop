@@ -28,6 +28,7 @@ export const TaskList = () => {
   return (
     <div className="taskList">
       <h1>Task list</h1>
+      <NewTaskForm />
       {taskList.map((task) => (
         <Task
           key={task.id}
@@ -37,5 +38,14 @@ export const TaskList = () => {
         />
       ))}
     </div>
+  )
+}
+
+export const NewTaskForm = () => {
+  return (
+    <form>
+      <input placeholder="title" />
+      <button>create</button>
+    </form>
   )
 }
