@@ -43,9 +43,33 @@ export const TaskList = () => {
 
 export const NewTaskForm = () => {
   return (
-    <form>
-      <input placeholder="title" />
-      <button>create</button>
+    <form
+      onSubmit={(event) => {
+        event.preventDefault()
+        const form = document.querySelector('form')
+        if (!form) {
+          throw new Error('Form not found!')
+        }
+        const formData = new FormData(form)
+        const title = formData.get('title')
+        const lastId = taskList[taskList.length - 1].id
+        if (typeof title !== 'string') {
+          throw new TypeError('Wrong title format')
+        }
+        taskList.push({
+          title,
+          isDone: false,
+          id: lastId + 1,
+        })
+        const input = document.querySelector('input')
+        if (!input) {
+          throw new Error('Input not found!')
+        }
+        input.value = ''
+      }}
+    >
+      <input placeholder="title" name="title" />
+      <button type="submit">create</button>
     </form>
   )
 }
