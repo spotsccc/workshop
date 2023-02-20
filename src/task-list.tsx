@@ -1,4 +1,5 @@
 import './task-list.css'
+import './tasks-filter.css'
 import { observer } from 'mobx-react-lite'
 import { Task } from './task'
 import { Filter, taskListStore } from './task-list-store'
@@ -23,7 +24,7 @@ export const TaskList = observer(() => {
 
 export const TasksFilter = observer(() => {
   return (
-    <div>
+    <div className="filters">
       <label>
         all
         <input
