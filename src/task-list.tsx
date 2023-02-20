@@ -25,6 +25,7 @@ export const NewTaskForm = observer(() => {
     <form
       onSubmit={(event) => {
         event.preventDefault()
+        taskListStore.createTask()
       }}
     >
       <input
