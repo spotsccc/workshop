@@ -31,6 +31,7 @@ class TaskListStore {
   ]
 
   public newTaskTitle = ''
+  public filter = Filter.all
   private lastTaskId = 3
 
   constructor() {
@@ -39,6 +40,10 @@ class TaskListStore {
 
   public changeNewTaskTitle(title: string) {
     this.newTaskTitle = title
+  }
+
+  public changeFilter(filter: Filter) {
+    this.filter = filter
   }
 
   public createTask() {
