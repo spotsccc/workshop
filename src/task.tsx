@@ -3,7 +3,7 @@ import './task.css'
 export type TaskProps = {
   title: string
   id: number
-  isDone: false
+  isDone: boolean
 }
 
 export const Task = ({ title, isDone }: TaskProps) => {
