@@ -1,5 +1,11 @@
 import { makeAutoObservable } from 'mobx'
 
+export enum Filter {
+  all = 'all',
+  done = 'done',
+  notDone = 'notDone',
+}
+
 class TaskListStore {
   public tasks = [
     {
