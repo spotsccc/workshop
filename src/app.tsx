@@ -1,3 +1,9 @@
+import { TaskList } from './task-list'
+
 export const App = () => {
-  return <div>Hello, world!</div>
+  return (
+    <div>
+      <TaskList />
+    </div>
+  )
 }
