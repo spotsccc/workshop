@@ -25,6 +25,7 @@ class TaskListStore {
   ]
 
   public newTaskTitle = ''
+  private lastTaskId = 3
 
   constructor() {
     makeAutoObservable(this)
@@ -32,6 +33,17 @@ class TaskListStore {
 
   public changeNewTaskTitle(title: string) {
     this.newTaskTitle = title
+  }
+
+  public createTask() {
+    this.lastTaskId++
+    this.tasks.push({
+      title: this.newTaskTitle,
+      isDone: false,
+      id: this.lastTaskId,
+    })
+
+    this.newTaskTitle = ''
   }
 }
 
