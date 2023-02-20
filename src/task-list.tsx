@@ -1,7 +1,7 @@
 import './task-list.css'
 import { observer } from 'mobx-react-lite'
 import { Task } from './task'
-import { taskListStore } from './task-list-store'
+import { Filter, taskListStore } from './task-list-store'
 
 export const TaskList = observer(() => {
   return (
@@ -26,15 +26,33 @@ export const TasksFilter = observer(() => {
     <div>
       <label>
         all
-        <input type="radio" />
+        <input
+          checked={taskListStore.filter === Filter.all}
+          type="radio"
+          onChange={() => {
+            taskListStore.changeFilter(Filter.all)
+          }}
+        />
       </label>
       <label>
         done
-        <input type="radio" />
+        <input
+          checked={taskListStore.filter === Filter.done}
+          type="radio"
+          onChange={() => {
+            taskListStore.changeFilter(Filter.done)
+          }}
+        />
       </label>
       <label>
         not done
-        <input type="radio" />
+        <input
+          checked={taskListStore.filter === Filter.notDone}
+          type="radio"
+          onChange={() => {
+            taskListStore.changeFilter(Filter.notDone)
+          }}
+        />
       </label>
     </div>
   )
