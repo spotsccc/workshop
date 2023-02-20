@@ -1,8 +1,9 @@
 import './task-list.css'
+import { observer } from 'mobx-react-lite'
 import { Task } from './task'
 import { taskListStore } from './task-list-store'
 
-export const TaskList = () => {
+export const TaskList = observer(() => {
   return (
     <div className="taskList">
       <h1>Task list</h1>
@@ -17,9 +18,9 @@ export const TaskList = () => {
       ))}
     </div>
   )
-}
+})
 
-export const NewTaskForm = () => {
+export const NewTaskForm = observer(() => {
   return (
     <form
       onSubmit={(event) => {
@@ -30,4 +31,4 @@ export const NewTaskForm = () => {
       <button type="submit">create</button>
     </form>
   )
-}
+})
