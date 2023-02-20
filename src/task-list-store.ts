@@ -7,7 +7,7 @@ export enum Filter {
 }
 
 class TaskListStore {
-  public tasks = [
+  private tasks = [
     {
       title: 'Learn html',
       id: 0,
@@ -36,6 +36,21 @@ class TaskListStore {
 
   constructor() {
     makeAutoObservable(this)
+  }
+
+  get filteredTasks() {
+    return this.tasks.filter((task) => {
+      switch (this.filter) {
+        case Filter.all:
+          return task
+        case Filter.done:
+          return task.isDone
+        case Filter.notDone:
+          return !task.isDone
+        default:
+          return task
+      }
+    })
   }
 
   public changeNewTaskTitle(title: string) {

@@ -8,7 +8,7 @@ export const TaskList = observer(() => {
     <div className="taskList">
       <h1>Task list</h1>
       <NewTaskForm />
-      {taskListStore.tasks.map((task) => (
+      {taskListStore.filteredTasks.map((task) => (
         <Task
           key={task.id}
           title={task.title}
