@@ -24,8 +24,14 @@ class TaskListStore {
     },
   ]
 
+  public newTaskTitle = ''
+
   constructor() {
     makeAutoObservable(this)
+  }
+
+  public changeNewTaskTitle(title: string) {
+    this.newTaskTitle = title
   }
 }
 
