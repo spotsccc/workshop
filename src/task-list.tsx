@@ -27,7 +27,14 @@ export const NewTaskForm = observer(() => {
         event.preventDefault()
       }}
     >
-      <input placeholder="title" name="title" />
+      <input
+        onChange={(e) => {
+          taskListStore.changeNewTaskTitle(e.target.value)
+        }}
+        value={taskListStore.newTaskTitle}
+        placeholder="title"
+        name="title"
+      />
       <button type="submit">create</button>
     </form>
   )
