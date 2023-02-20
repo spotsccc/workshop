@@ -75,7 +75,7 @@ class TaskListStore {
   public toggleTaskStatus(id: number) {
     const task = this.tasks.find((task) => task.id === id)
     if (!task) {
-      throw new Error('Task not found!')
+      throw new Error('Index not found!')
     }
     task.isDone = !task.isDone
   }

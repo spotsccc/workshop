@@ -1,6 +1,6 @@
-import './task.css'
+import './index.css'
 import { observer } from 'mobx-react-lite'
-import { taskListStore } from './task-list-store'
+import { taskListStore } from '../../task-list-store'
 
 export type TaskProps = {
   title: string
@@ -8,7 +8,7 @@ export type TaskProps = {
   isDone: boolean
 }
 
-export const Task = observer(({ title, id, isDone }: TaskProps) => {
+export const Index = observer(({ title, id, isDone }: TaskProps) => {
   return (
     <div className="task">
       <p className="taskTitle">{title}</p>
